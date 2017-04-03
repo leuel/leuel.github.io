@@ -104,7 +104,7 @@ up　3:47　　　表示系统自启动到现在的运行时间
 up　3:47　　　表示系统自启动到现在的运行时间
 ２　user　　表示">
 <meta property="og:image" content="http://img0.ph.126.net/I_CRWhnnk6MvkVdcqHx7Dg==/6632543310303459828.png">
-<meta property="og:updated_time" content="2017-04-03T10:21:23.375Z">
+<meta property="og:updated_time" content="2017-04-03T12:01:08.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="top命令">
 <meta name="twitter:description" content="###简介top命令是Linux下常用的性能分析工具，能够实时显示系统中相关资源的占用状况。相当于windows下面的任务管理器，该命令可以按CPU的使用，内存的使用和执行时间对任务进行排序，显示如下：
@@ -352,7 +352,23 @@ up　3:47　　　表示系统自启动到现在的运行时间
 <p>图片数字均表示百分比，us和sy表示用户态和内核态占用的CPU情况，ni表示改变过优先级和进程占用CPU情况，id表示CPU空闲占比，wa表示CPU等待io的时间占比，hi和si分别表示硬中断和软中断占用的CPU百分比，st表示虚拟机占用CPU的情况。</p>
 <p><strong>第四行和第五行：分别显示内存和交换分区的使用情况，具体如下</strong></p>
 <p>从左往右</p>
-<p>第一个显示总量，第二个显示已使用量，第三个显示剩余量</p>
+<p>第一个显示总量，第二个显示已使用量，第三个显示剩余量，最后一个物理内存和交换区显示不同，物理内存表示用作内存缓存的内存量，而交换区则表示缓冲的交换区总量。</p>
+<p>内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚未被覆盖，该数值即为这些内容已存在于内存中和交换区的大小，相应的内存再次被换出时可不必再对交换区写入。</p>
+<p>###进程信息详解<br><strong>具体列解释如下：</strong></p>
+<p>PID　　进程id</p>
+<p>USER　　进程所有者的用户id </p>
+<p>PR　　优先级</p>
+<p>NI　　nice值，负值表示高优先级，正值表示低优先级</p>
+<p>VIRT　　进程使用的虚拟内存总量，单位kb，VIRT=SWAP+RES</p>
+<p>RES　　进程使用的，未被换出的物理内存大小，单位kb，RES=CODE+DATA</p>
+<p><strong>CODE可执行代码占用的物理内存大小，单位kb</strong></p>
+<p><strong>DATA可执行代码以外的部分（数据段+栈）占用物理内存的大小，单位kb</strong></p>
+<p>SHR　　共享内存大小，单位kb</p>
+<p>S　　进程状态（Ｄ=不可中断的睡眠状态，R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程）</p>
+<p>%CPU　　上次更新到现在的CPU时间占用百分比。</p>
+<p>%MEM　　进程使用物理内存百分比</p>
+<p>TIME+　　进程使用的CPU时间总计，单位1/100秒</p>
+<p>COMMAND　　命令名/命令行</p>
 
       
     </div>
